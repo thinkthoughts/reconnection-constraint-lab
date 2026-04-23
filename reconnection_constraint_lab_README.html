@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>reconnection-constraint-lab</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121933;
+      --panel-2: #182142;
+      --text: #edf2ff;
+      --muted: #b8c3e0;
+      --accent: #9cc9ff;
+      --accent-2: #8ef0d0;
+      --border: #2c3b6b;
+      --code: #0e1530;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, var(--bg), #0f1630 40%, #121933 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 20px 72px;
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(156,201,255,0.12), rgba(142,240,208,0.08));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+    }
+    h1, h2, h3 { line-height: 1.2; }
+    h1 { margin: 0 0 10px; font-size: 2.3rem; }
+    h2 { margin-top: 34px; font-size: 1.45rem; }
+    h3 { margin-top: 24px; font-size: 1.1rem; }
+    p, li { color: var(--muted); }
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      margin: 6px 8px 0 0;
+      border-radius: 999px;
+      background: rgba(156,201,255,0.12);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 0.92rem;
+    }
+    .panel {
+      margin-top: 22px;
+      background: rgba(18,25,51,0.9);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+    }
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    pre {
+      background: var(--code);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      overflow-x: auto;
+      color: #dbe8ff;
+      white-space: pre-wrap;
+    }
+    .equation {
+      font-size: 1.2rem;
+      color: var(--accent-2);
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent-2);
+      background: rgba(142,240,208,0.06);
+      border-radius: 10px;
+      margin: 16px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      background: var(--panel);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      color: var(--text);
+      background: rgba(156,201,255,0.08);
+    }
+    tr:last-child td { border-bottom: none; }
+    a { color: var(--accent); }
+    .footer {
+      margin-top: 40px;
+      color: #9fb0d7;
+      font-size: 0.94rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>reconnection-constraint-lab</h1>
+      <p><strong>Constraint-gated modeling of magnetic reconnection across solar scales.</strong> This repo frames Ellerman bombs, plasmoid chains, turbulent current sheets, and large solar flares as a unified <strong>45° geometric selection</strong> process rather than disconnected mechanisms.</p>
+      <div>
+        <span class="tag">45° constraint</span>
+        <span class="tag">magnetic reconnection</span>
+        <span class="tag">plasmoid instability</span>
+        <span class="tag">turbulence</span>
+        <span class="tag">DKIST / ALMA</span>
+        <span class="tag">solar scales</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Core statement</h2>
+      <p>Magnetic reconnection can be presented as <strong>constraint-gated topology change</strong>. Energy remains stored while magnetic structure stays below a geometric alignment threshold. Once that threshold is crossed, topology rearranges and magnetic energy is released into heating, motion, and radiation.</p>
+      <div class="equation">cos θ ≥ 1 / √(1² + 1²)</div>
+      <p>Within this framing:</p>
+      <ul>
+        <li><strong>stable field structure</strong> = sub-threshold alignment</li>
+        <li><strong>current-sheet transition</strong> = threshold crossing</li>
+        <li><strong>reconnection onset</strong> = selected release pathway</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>Paper concept</h2>
+      <h3>Magnetic Reconnection as a 45° Constraint-Gated Energy Release Across Solar Scales</h3>
+      <p>The paper would argue that reconnection across solar scales is best understood as a scale-invariant selection process:</p>
+      <div class="equation">constraint → signal &gt; noise → structured energy release</div>
+      <p>That lets the same explanation cover:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Regime</th>
+            <th>Standard label</th>
+            <th>45° systems explanation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>small scale</td>
+            <td>Ellerman bombs</td>
+            <td>local threshold crossings in stressed magnetic structure</td>
+          </tr>
+          <tr>
+            <td>intermediate scale</td>
+            <td>plasmoid instability</td>
+            <td>recursive refinement of current-sheet selection</td>
+          </tr>
+          <tr>
+            <td>large scale</td>
+            <td>X-class flares</td>
+            <td>global cascade after large-scale threshold crossing</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>In this structure, turbulence is not treated as mere disorder. It is a high-dimensional search over local configurations where misaligned states are rejected and reconnection-compatible states survive.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Repo structure</h2>
+      <pre>reconnection-constraint-lab/
+├── README.md
+├── paper/
+│   └── reconnection_45deg.tex
+├── notebooks/
+│   ├── 01_field_alignment_threshold.ipynb
+│   ├── 02_current_sheet_instability.ipynb
+│   ├── 03_plasmoid_cascade.ipynb
+│   ├── 04_turbulent_sampling.ipynb
+│   └── 05_scale_invariance_test.ipynb
+├── figures/
+│   ├── threshold_geometry.png
+│   ├── plasmoid_tree.png
+│   └── energy_release_scaling.png
+└── data/
+    └── synthetic_mhd_fields/</pre>
+    </section>
+
+    <section class="panel">
+      <h2>Notebook roadmap</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>01 · Field alignment threshold</h3>
+          <p>Generate synthetic vector fields, compute local angular distributions, and show a sharp transition near the 45° gate.</p>
+        </div>
+        <div class="card">
+          <h3>02 · Current-sheet instability</h3>
+          <p>Track thinning sheets, increasing shear, and threshold crossing as a geometric onset condition for reconnection.</p>
+        </div>
+        <div class="card">
+          <h3>03 · Plasmoid cascade</h3>
+          <p>Build a recursive splitting model where plasmoids appear as local re-balancing nodes inside the current sheet.</p>
+        </div>
+        <div class="card">
+          <h3>04 · Turbulent sampling</h3>
+          <p>Model perturbative search over configurations and show how selection preserves structured release instead of undifferentiated collapse.</p>
+        </div>
+        <div class="card">
+          <h3>05 · Scale invariance test</h3>
+          <p>Compare small and large events to test whether the same threshold logic survives across scales.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Observation and instrument tie-in</h2>
+      <p>This repo is meant to connect directly to the seminar emphasis on observations and simulations:</p>
+      <ul>
+        <li><strong>DKIST</strong> resolves fine-scale magnetic structure and current-sheet morphology.</li>
+        <li><strong>ALMA</strong> constrains thermal and magnetic evolution in reconnection-heated regions.</li>
+        <li><strong>r-MHD simulations</strong> provide the full dynamical field space; the 45° interpretation extracts the selected reconnection subspace.</li>
+      </ul>
+      <p>That makes the project useful as both an explanatory paper and a computational lab notebook series.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Initial glossary</h2>
+      <ul>
+        <li><strong>magnetic reconnection</strong>: topological rearrangement of magnetic field structure that converts stored magnetic energy into heat, motion, and radiation</li>
+        <li><strong>current sheet</strong>: thin region of strong magnetic shear where reconnection tends to localize</li>
+        <li><strong>plasmoid instability</strong>: fragmentation of an extended current sheet into magnetic islands / plasmoids</li>
+        <li><strong>turbulence</strong>: multi-scale fluctuation field that rapidly samples possible local configurations</li>
+        <li><strong>geometric selection</strong>: threshold-based survival of reconnection-compatible configurations</li>
+        <li><strong>45° constraint</strong>: cosine gate used here to mark the transition between stored alignment and released topology change</li>
+        <li><strong>scale invariance</strong>: same explanatory structure appearing from small bombs to large flares</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>One-line repo summary</h2>
+      <pre>Magnetic reconnection = constraint-gated topology change at 45°, from bombs to flares.</pre>
+    </section>
+
+    <p class="footer">Prepared as an initial README-style HTML for seminar-driven repo planning.</p>
+  </div>
+</body>
+</html>
